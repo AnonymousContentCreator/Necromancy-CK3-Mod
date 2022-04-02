@@ -1,0 +1,12 @@
+﻿supernatural_game_rule = {
+	default = allowed_supernatural_game_rule
+
+	allowed_supernatural_game_rule = {
+	}
+
+	none_supernatural_game_rule = {
+	}
+	
+	relaxed_supernatural_game_rule = {
+	}
+}

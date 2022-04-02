@@ -1,0 +1,9 @@
+﻿l_english:
+
+rule_supernatural_game_rule:0 "Supernatural Events"
+setting_allowed_supernatural_game_rule:0 "Allowed"
+setting_allowed_supernatural_game_rule_desc:0 "Events that can be interpreted as supernatural may appear during the game."
+setting_none_supernatural_game_rule:0 "#high Disabled#!"
+setting_none_supernatural_game_rule_desc:0 "No events that can be interpreted as supernatural may appear during the game."
+setting_relaxed_supernatural_game_rule:0 "#high Relaxed#!"
+setting_relaxed_supernatural_game_rule_desc:0 "All rulers are eligible for supernatural events, and the requirements to receive them are lessened."
