@@ -1,0 +1,15 @@
+﻿necromancy_artifact_mod = {
+	general_opinion = -10
+	monthly_piety_gain_per_dread_mult = 0.2
+	monthly_prestige_gain_per_dread_mult = 0.2
+	dread_gain_mult = 0.2
+	prowess = 2
+}
+
+defender_of_the_living = {
+	icon = prowess_positive
+	opinion_of_liege = -30
+	fellow_vassal_opinion = 30
+	ai_boldness = 150
+	prowess = 6
+}

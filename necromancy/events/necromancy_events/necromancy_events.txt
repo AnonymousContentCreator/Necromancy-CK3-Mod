@@ -1,0 +1,190 @@
+﻿namespace = necromancy
+
+# Discover the means to make the means to become a necromancer
+necromancy.001 = {
+	type = character_event
+	title = necromancy.0001.t
+	desc = necromancy.0001.desc
+
+	theme = skull
+	trigger = {
+		has_focus = learning_scholarship_focus
+		NOT = {
+			has_game_rule = none_supernatural_game_rule
+		}
+	}
+	immediate = {
+		save_scope_as = actor
+	}
+	left_portrait = {
+		character = root
+		animation = personality_rational
+	}
+
+	option = {
+		name = necromancy.0001.a
+		#We start looking for kings or emperors to steal kingsblood from!
+		custom_tooltip = necromancy.0001.a.tt
+		add_character_flag = {
+			flag = necromancy_looking_for_kingsblood
+		}
+		add_stress = 20
+	}
+	option = {
+		name = necromancy.0001.b
+		add_piety = 10
+		add_stress = -10
+	}
+}
+
+#Writing the book of the damn 
+necromancy.002 = {
+	type = character_event
+	title = necromancy.0002.t
+	desc = necromancy.0002.d
+
+	theme = skull
+	override_background = {
+		event_background = corridor_night
+	}
+	left_portrait = {
+		character = scope:actor
+		animation = scheme
+	}
+	right_portrait = {
+		character = scope:recipient #scope:actor
+		animation = fear #fear
+	}
+
+	immediate = {
+		play_music_cue = "mx_cue_sacredrite"
+	}
+
+	option = {
+		name = necromancy.0002.a
+		create_necromancy_artifact = yes
+		add_consumed_soul = yes
+	}
+}
+
+#Upgrade Necromancy Trait!
+necromancy.003 = {
+	type = character_event
+	title = necromancy.0003.t
+	desc = necromancy.0003.desc
+
+	theme = skull
+	override_background = {
+		event_background = corridor_night
+	}
+
+	immediate = {
+		save_scope_as = actor
+	}
+	left_portrait = {
+		character = root
+		animation = rage
+	}
+
+	option = {
+		name = necromancy.0003.a
+		upgrade_necromancy_trait = yes
+	}
+}
+
+#Necromantic Energy Makes Us Evil!
+necromancy.0004 = {
+	type = character_event
+	title = necromancy.0004.t
+	desc = necromancy.0004.desc
+
+	theme = skull
+	override_background = {
+		event_background = corridor_night
+	}
+
+	immediate = {
+		save_scope_as = actor
+	}
+	left_portrait = {
+		character = root
+		animation = personality_vengeful
+	}
+
+	option = {
+		name = necromancy.0004.a
+		necromancy_make_more_evil = yes
+	}
+}
+
+#Our liege is EVIL! Makes vassals more Brave!
+necromancy.0005 = {
+	type = character_event
+	title = necromancy.0005.t
+	desc = necromancy.0005.desc
+
+	theme = skull
+	override_background = {
+		event_background = corridor_night
+	}
+
+	immediate = {
+		save_scope_as = actor
+		liege = {
+			save_scope_as = evil_liege
+		}
+	}
+	left_portrait = {
+		character = root
+		animation = fear
+	}
+	right_portrait = {
+		character = root.liege
+		animation = scheme
+	}
+
+	#We need to stand up to our liege!
+	option = {
+		name = necromancy.0005.a
+		ai_will_do = {
+			base = 10
+			modifier = {
+				add = 100
+				OR = {
+					ai_diplomacy_stance = {
+						target = scope:evil_liege
+						stance = threat
+					}
+					ai_diplomacy_stance = {
+						target = scope:evil_liege
+						stance = enemy
+					}
+				}
+			}
+		}
+		necromancer_make_more_brave = yes
+		add_stress = -50
+	}
+
+	#Failed to defend the living! Stood by as the evil necromancer terrified the countryside.
+	option = {
+		name = necromancy.0005.b
+		ai_will_do = {
+			base = 10
+			modifier = {
+				add = 30
+				ai_diplomacy_stance = {
+					target = scope:evil_liege
+					stance = friend
+				}
+			}
+		}
+		add_stress = 50
+		liege = {
+			add_opinion = {
+				modifier = loyal_pawn_opinion
+				target = root
+			}
+		}
+	}
+}

@@ -1,0 +1,51 @@
+#Helps make the prisoner code easier to view
+necromancy_can_artifact_steal_souls_trigger = {
+	has_variable = necromancy_souls_drained
+}
+
+#Check if we have any artifact that can steal souls equipped, for the execution option tooltip!
+necromancy_has_a_soul_stealing_artifact_equipped = {
+	custom_tooltip = {
+		text = necromancy_has_a_soul_stealing_artifact_equipped_text
+
+		OR = {
+			has_character_flag = necromancy_looking_for_kingsblood #We also use this execution option to make the artifact!
+			any_equipped_character_artifact = {
+				necromancy_can_artifact_steal_souls_trigger = yes
+			}
+		}
+	}
+}
+
+#This trigger checks if its okay for this scope to dislike a Necromancer ( scope:actor ).
+is_okay_to_dislike_a_necromancer = {
+	#Fellow practicioners of the dark arts c:
+	NOT = { has_trait = necromancy_group }
+	NOT = { is_witch_trigger = yes }
+
+	#A few others won't mind
+	NOT = { has_trait = lunatic }
+	NOT = { has_trait = possessed }
+	NOT = { has_trait = sadistic }
+
+	#We don't care what you think!
+	is_adult = yes
+	is_imprisoned = no
+	is_incapable = no
+
+	#We don't have some reason to be obedient!
+	NOT = {
+		is_obedient = scope:actor
+	}
+
+	#Lovers, soul mates and best friends don't mind their friend getting into dark arts!
+	NOT = {
+		has_relation_lover = scope:actor
+	}
+	NOT = {
+		has_relation_best_friend = scope:actor
+	}
+	NOT = {
+		has_relation_soulmate = scope:actor
+	}
+}

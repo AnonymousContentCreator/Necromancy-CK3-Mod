@@ -1,0 +1,258 @@
+﻿add_consumed_soul = {
+	#Adds the soul to the artifact!
+	random_equipped_character_artifact = {
+		limit = {
+			necromancy_can_artifact_steal_souls_trigger = yes
+		}
+		save_scope_as = artifact
+		change_variable = {
+			name = necromancy_souls_drained
+			add = 1
+		}
+	}
+	scope:recipient = {
+		switch = {
+			trigger = highest_skill
+			diplomacy = {
+				scope:actor = { add_diplomacy_skill = 1 }
+			}
+			martial = {
+				scope:actor = { add_martial_skill = 1 }
+			}
+			stewardship = {
+				scope:actor = { add_stewardship_skill = 1 }
+			}
+			intrigue = {
+				scope:actor = { add_intrigue_skill = 1 }
+			}
+			learning = {
+				scope:actor = { add_learning_skill = 1 }
+			}
+			fallback = {
+				scope:actor = { add_prowess_skill = 1 }
+			}
+		}
+	}
+	#Dont fire negative events on the first soul!
+	if = {
+		limit = {
+			scope:artifact = {
+				necromancy_souls_drained = { compare_value > 1 }
+			}
+		}
+		scope:actor = {
+			necromancy_events_check = yes
+		}
+	} 
+}
+
+create_necromancy_artifact = {
+	create_artifact = {
+		name = necromancy_artifact_name
+		description = necromancy_artifact_desc
+		visuals = regalia
+		type = regalia
+		modifier = necromancy_artifact_mod
+		template = necromancy_artifact_template
+		wealth = 65
+		quality = 65
+		actor = scope:actor
+		recipient = scope:recipient
+		history = {
+			location = scope:location.title_province
+			actor = scope:actor
+			recipient = scope:recipient
+			type = created
+		}
+		save_scope_as = newly_created_artifact
+	}
+	scope:newly_created_artifact = {
+		set_variable = {
+			name = necromancy_souls_drained
+			value = 0
+		}
+	}
+}
+
+necromancy_events_check = {
+	if = {
+		limit = {
+			has_trait = sadistic #Don't start leveling up your necromancy trait until you have sadistic.
+		}
+		random_list = {
+			80 = {
+				#No event fire for this soul!
+			}
+			20 = {
+				#Level up your necromancer trait!
+				#Become more evil!
+				trigger_event = {
+					id = necromancy.0003
+					days = 15
+				}
+			}
+		}
+		random_list = {
+			60 = {
+			}
+			40 = {
+				#Each soul we consume is a 40% chance of angering one of our vassals.
+				necromancy_make_a_vassal_upset = yes
+			}
+		}
+	}
+	else = {
+		random_list = {
+			60 = {
+				#Avoided becoming more evil!
+			}
+			40 = {
+				#Become more evil!
+				trigger_event = {
+					id = necromancy.0004
+					days = 20
+				}
+			}
+		}
+		random_list = {
+			80 = {
+			}
+			20 = {
+				#Each soul we consume is a 20% chance of angering one of our vassals.
+				necromancy_make_a_vassal_upset = yes
+			}
+		}
+	}
+}
+
+necromancy_make_a_vassal_upset = {
+	random_vassal = {
+		limit = {
+			is_okay_to_dislike_a_necromancer = yes
+		}
+		trigger_event = {
+			id = necromancy.0005
+			days = 10
+		}
+	}
+}
+
+upgrade_necromancy_trait = {
+	change_trait_rank = {
+		trait = necromancy_group
+		rank = 1
+		max = 10
+	}
+}
+
+necromancy_make_more_evil = {
+	switch = {
+		trigger = has_trait
+		calm = {
+			remove_trait = calm
+		}
+		content = {
+			remove_trait = content
+		}
+		lazy = {
+			remove_trait = lazy
+		}
+		forgiving = {
+			remove_trait = forgiving
+		}
+		generous = {
+			remove_trait = generous
+		}
+		honest = {
+			remove_trait = honest
+		}
+		humble = {
+			remove_trait = humble
+		}
+		just = {
+			remove_trait = just
+		}
+		trusting = {
+			remove_trait = trusting
+		}
+		temperate = {
+			remove_trait = temperate
+		}
+		compassionate = {
+			remove_trait = compassionate
+		}
+		callous = {
+			remove_trait = callous
+		}
+		fallback = {
+			necromancy_add_evil_traits = yes
+		}
+	}
+}
+
+necromancy_add_evil_traits = {
+	if = {
+		limit = {
+			NOT = { has_trait = wrathful }
+		}
+		add_trait = wrathful
+	}
+	else_if = {
+		limit = {
+			NOT = { has_trait = deceitful }
+		}
+		add_trait = deceitful
+	}
+	else_if = {
+		limit = {
+			NOT = { has_trait = sadistic }
+		}
+		add_trait = sadistic
+	}
+	else = {
+		add_dread = 10
+	}
+}
+
+necromancer_make_more_brave = {
+	if = {
+		limit = {
+			has_trait = craven
+		}
+		remove_trait = craven
+	}
+	else_if = {
+		limit = {
+			has_trait = content
+		}
+		remove_trait = content
+	}
+	else_if = {
+		limit = {
+			has_trait = shy
+		}
+		remove_trait = shy
+	}
+	else_if = {
+		limit = {
+			NOT = { has_trait = ambitious }
+		}
+		add_trait = ambitious
+	}
+	else_if = {
+		limit = {
+			NOT = { has_trait = brave }
+		}
+		add_trait = brave
+	}
+	else = {
+		add_character_modifier = {
+			modifier = defender_of_the_living
+			years = 10
+		}
+	}
+	add_opinion = {
+		modifier = liege_is_evil_opinion
+		target = root.liege
+	}
+}

@@ -1,0 +1,306 @@
+necromancer_1 = {
+	icon = {
+		first_valid = {
+			triggered_desc = {
+				trigger = { always = yes }
+				desc = necromancer_trait.dds
+			}
+		}
+	}
+	health = 0.2
+	prowess = 1
+	general_opinion = -6
+
+	shown_in_ruler_designer = no
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_necromancer_desc
+			}
+			desc = trait_necromancer_character_desc
+		}
+	}
+
+	ai_honor = -1
+	ai_greed = 1
+	ai_compassion = -1
+	ai_sociability = -1
+	ai_rationality = -1
+	ai_vengefulness = 1
+	group = necromancy_group
+	level = 1
+}
+
+necromancer_2 = {
+	icon = necromancer_trait.dds
+	health = 0.4
+	prowess = 2
+	general_opinion = -12
+
+	shown_in_ruler_designer = no
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_necromancer_desc
+			}
+			desc = trait_necromancer_character_desc
+		}
+	}
+
+	ai_honor = -2
+	ai_greed = 2
+	ai_compassion = -2
+	ai_sociability = -2
+	ai_rationality = -2
+	ai_vengefulness = 2
+	group = necromancy_group
+	level = 2
+}
+
+necromancer_3 = {
+	icon = necromancer_trait.dds
+	health = 0.6
+	prowess = 3
+	general_opinion = -18
+
+	shown_in_ruler_designer = no
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_necromancer_desc
+			}
+			desc = trait_necromancer_character_desc
+		}
+	}
+
+	ai_honor = -3
+	ai_greed = 3
+	ai_compassion = -3
+	ai_sociability = -3
+	ai_rationality = -3
+	ai_vengefulness = 3
+	group = necromancy_group
+	level = 3
+}
+
+necromancer_4 = {
+	icon = necromancer_trait.dds
+	health = 0.8
+	prowess = 4
+	general_opinion = -24
+
+	shown_in_ruler_designer = no
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_necromancer_desc
+			}
+			desc = trait_necromancer_character_desc
+		}
+	}
+
+	ai_honor = -4
+	ai_greed = 4
+	ai_compassion = -4
+	ai_sociability = -4
+	ai_rationality = -4
+	ai_vengefulness = 4
+	group = necromancy_group
+	level = 4
+}
+
+necromancer_5 = {
+	icon = necromancer_trait.dds
+	health = 1
+	prowess = 5
+	general_opinion = -30
+
+	shown_in_ruler_designer = no
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_necromancer_desc
+			}
+			desc = trait_necromancer_character_desc
+		}
+	}
+
+	ai_honor = -5
+	ai_greed = 5
+	ai_compassion = -5
+	ai_sociability = -5
+	ai_rationality = -5
+	ai_vengefulness = 5
+	group = necromancy_group
+	level = 5
+}
+
+necromancer_6 = {
+	icon = necromancer_trait.dds
+	health = 1.2
+	prowess = 6
+	general_opinion = -36
+
+	shown_in_ruler_designer = no
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_necromancer_desc
+			}
+			desc = trait_necromancer_character_desc
+		}
+	}
+
+	ai_honor = -6
+	ai_greed = 6
+	ai_compassion = -6
+	ai_sociability = -6
+	ai_rationality = -6
+	ai_vengefulness = 6
+	group = necromancy_group
+	level = 6
+}
+
+necromancer_7 = {
+	icon = necromancer_trait.dds
+	health = 1.4
+	prowess = 7
+	general_opinion = -42
+
+	shown_in_ruler_designer = no
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_necromancer_desc
+			}
+			desc = trait_necromancer_character_desc
+		}
+	}
+
+	ai_honor = -7
+	ai_greed = 7
+	ai_compassion = -7
+	ai_sociability = -7
+	ai_rationality = -7
+	ai_vengefulness = 7
+	group = necromancy_group
+	level = 7
+}
+
+necromancer_8 = {
+	icon = necromancer_trait.dds
+	health = 1.6
+	prowess = 8
+	general_opinion = -48
+
+	shown_in_ruler_designer = no
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_necromancer_desc
+			}
+			desc = trait_necromancer_character_desc
+		}
+	}
+
+	ai_honor = -8
+	ai_greed = 8
+	ai_compassion = -8
+	ai_sociability = -8
+	ai_rationality = -8
+	ai_vengefulness = 8
+	group = necromancy_group
+	level = 8
+}
+
+necromancer_9 = {
+	icon = necromancer_trait.dds
+	health = 1.8
+	prowess = 9
+	general_opinion = -54
+
+	shown_in_ruler_designer = no
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_necromancer_desc
+			}
+			desc = trait_necromancer_character_desc
+		}
+	}
+
+	ai_honor = -9
+	ai_greed = 9
+	ai_compassion = -9
+	ai_sociability = -9
+	ai_rationality = -9
+	ai_vengefulness = 9
+	group = necromancy_group
+	level = 9
+}
+
+necromancer_10 = {
+	icon = necromancer_trait.dds
+	health = 2
+	prowess = 10
+	general_opinion = -60
+
+	shown_in_ruler_designer = no
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_necromancer_desc
+			}
+			desc = trait_necromancer_character_desc
+		}
+	}
+
+	ai_honor = -10
+	ai_greed = 10
+	ai_compassion = -10
+	ai_sociability = -10
+	ai_rationality = -10
+	ai_vengefulness = 10
+	group = necromancy_group
+	level = 10
+}

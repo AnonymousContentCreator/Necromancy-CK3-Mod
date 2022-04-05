@@ -1,0 +1,4 @@
+Adds the new prison interaction, "Soul Absorb".
+I backend off of the prison system rather then making a new character interaction because I am able to inherit most of the backend utility
+thats still applies to this. ( Only being able to do it on characters that you have cornered, having a relation malus & kinslayer if you do it on family,
+dread & religion hooks. )

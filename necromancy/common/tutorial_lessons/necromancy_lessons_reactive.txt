@@ -1,0 +1,26 @@
+﻿reactive_advice_necromancy = {
+	chain = reactive_advice
+	delay = 0
+	start_automatically = no
+	
+	reactive_advice_necromancy_step_1 = {
+		text = "reactive_advice_necromancy_desc"
+		animation = right
+
+		#highlight_widget = "tab_military"
+		#highlight_widget = "tutorial_highlight_hire_troops_button"
+		#highlight_widget = "tutorial_highlight_mercenary_list_item"
+		#highlight_widget = "hire_button"
+		
+		gui_transition = {
+			button_id = "read_later"
+			button_text = "tutorial_lesson_button_read_later"
+			target = lesson_abort
+		}
+		gui_transition = {
+			button_id = "next"
+			button_text = "tutorial_lesson_button_complete"
+			target = lesson_finish
+		}
+	}
+}
