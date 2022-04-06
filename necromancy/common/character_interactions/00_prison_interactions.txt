@@ -3881,7 +3881,7 @@ execute_prisoner_interaction = {
 						}
 					}
 					scope:actor = {
-						trigger_event = necromancy.002
+						trigger_event = necromancy.0002
 					}
 				}
 				#Otherwise, we have it equipped. Add the soul to the artifact!
@@ -3985,7 +3985,12 @@ execute_prisoner_interaction = {
 		is_shown = {
 			scope:actor = {
 				OR = {
-					has_character_flag = necromancy_looking_for_kingsblood
+					AND = {
+						has_character_flag = necromancy_looking_for_kingsblood
+						scope:recipient = {
+							highest_held_title_tier >= tier_kingdom
+						}
+					}
 					any_character_artifact = {
 						necromancy_can_artifact_steal_souls_trigger = yes
 					}

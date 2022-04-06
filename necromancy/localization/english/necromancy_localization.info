@@ -1,0 +1,8 @@
+The design document said to ship this..:
+"if it were a work
+task you are handing over to Quality Assurance Testing for final approval prior to release in an official
+Paradox Development Studio Grand Strategy game."
+
+However, I am unsure at what stage Paradox handles localization in other languages!
+IE; If localization is handled before QA, or if localization takes place after.
+For now, going to assume that just including english localization is okay!

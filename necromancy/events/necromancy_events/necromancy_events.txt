@@ -1,7 +1,7 @@
 ﻿namespace = necromancy
 
-# Discover the means to make the means to become a necromancer
-necromancy.001 = {
+# Event 1 - A Dark Discovery.
+necromancy.0001 = {
 	type = character_event
 	title = necromancy.0001.t
 	desc = necromancy.0001.desc
@@ -9,12 +9,30 @@ necromancy.001 = {
 	theme = skull
 	trigger = {
 		has_focus = learning_scholarship_focus
-		NOT = {
-			has_game_rule = none_supernatural_game_rule
+		NOT = { has_character_flag = necromancy_001_flag }
+		switch = {
+			trigger = has_game_rule
+			allowed_supernatural_game_rule = {
+				is_ai = no
+				OR = {
+					is_witch_trigger = yes
+					has_trait = mystic_3
+				}
+			}
+			relaxed_supernatural_game_rule = {
+				OR = {
+					is_witch_trigger = yes
+					has_trait = lifestyle_mystic
+				}
+			}
+			none_supernatural_game_rule = {
+				always = no
+			}
 		}
 	}
 	immediate = {
 		save_scope_as = actor
+		set_character_flag = necromancy_001_flag
 	}
 	left_portrait = {
 		character = root
@@ -37,8 +55,8 @@ necromancy.001 = {
 	}
 }
 
-#Writing the book of the damn 
-necromancy.002 = {
+# Event 2 - A Sordid Ritual
+necromancy.0002 = {
 	type = character_event
 	title = necromancy.0002.t
 	desc = necromancy.0002.d
@@ -67,8 +85,8 @@ necromancy.002 = {
 	}
 }
 
-#Upgrade Necromancy Trait!
-necromancy.003 = {
+# Event 3 - Raw Power!
+necromancy.0003 = {
 	type = character_event
 	title = necromancy.0003.t
 	desc = necromancy.0003.desc
@@ -92,7 +110,7 @@ necromancy.003 = {
 	}
 }
 
-#Necromantic Energy Makes Us Evil!
+# Event 4 - Changing Demeanor
 necromancy.0004 = {
 	type = character_event
 	title = necromancy.0004.t
@@ -117,7 +135,7 @@ necromancy.0004 = {
 	}
 }
 
-#Our liege is EVIL! Makes vassals more Brave!
+# Event 5 - Our Liege Practices Dark Magic!
 necromancy.0005 = {
 	type = character_event
 	title = necromancy.0005.t
@@ -163,7 +181,7 @@ necromancy.0005 = {
 			}
 		}
 		necromancer_make_more_brave = yes
-		add_stress = -50
+		add_stress = -20
 	}
 
 	#Failed to defend the living! Stood by as the evil necromancer terrified the countryside.
@@ -179,7 +197,7 @@ necromancy.0005 = {
 				}
 			}
 		}
-		add_stress = 50
+		add_stress = 20
 		liege = {
 			add_opinion = {
 				modifier = loyal_pawn_opinion
